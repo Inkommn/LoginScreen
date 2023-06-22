@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - CustomButton
 final class CustomButton: UIButton {
     init(title: String, backgroundColor: UIColor, isShadow: Bool, titleColor: UIColor = .white) {
         super.init(frame: .zero)
@@ -19,18 +20,21 @@ final class CustomButton: UIButton {
         )
     }
     
-    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
     private func setupSelfButton(title: String, backgroundColor: UIColor, isShadow: Bool, titleColor: UIColor) {
         setTitle(title, for: .normal)
         setTitleColor(titleColor, for: .normal)
+        setTitleColor(.highlightedColor, for: .highlighted)
         titleLabel?.font = .boldSystemFont(ofSize: 20)
         layer.cornerRadius = 10
         self.backgroundColor = backgroundColor
+        
+        heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         if isShadow {
             layer.shadowColor = UIColor.black.cgColor
@@ -38,6 +42,5 @@ final class CustomButton: UIButton {
             layer.shadowOpacity = 0.4
             layer.shadowOffset = CGSize(width: 0, height: 7)
         }
-        
     }
 }

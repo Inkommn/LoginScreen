@@ -38,13 +38,22 @@ final class AuthViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    // MARK: - Actions
+    @objc
+    private func showLoginViewController() {
+        let loginVC = LoginViewController()
+        
+        present(loginVC, animated: true)
+    }
 }
 
 // MARK: - Setting view
 private extension AuthViewController {
     func setupView() {
-        view.backgroundColor = #colorLiteral(red: 0.8600829244, green: 0.2624471188, blue: 0.3114928305, alpha: 0.9179946192)
+        view.backgroundColor = .mainBackground
         addSubViews()
+        addActions()
         
         setupLogoImage()
         setupEmailContainer()
@@ -62,6 +71,14 @@ private extension AuthViewController {
         }
     }
     
+    func addActions() {
+        loginButton.addTarget(
+            self,
+            action: #selector(showLoginViewController),
+            for: .touchUpInside
+        )
+    }
+    
     func setupLogoImage() {
         logoImage.image = UIImage(named: "logo")
         logoImage.contentMode = .scaleAspectFit
@@ -76,6 +93,7 @@ private extension AuthViewController {
     
     func setupLogInContainer() {
         logInContainer.axis = .vertical
+        
         logInContainer.addArrangedSubview(loginLabel)
         logInContainer.addArrangedSubview(loginButton)
     }
@@ -94,25 +112,20 @@ private extension AuthViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+                logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
                 logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 logoImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.66),
-                logoImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
+                logoImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33),
                 
                 emailContainer.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 10),
                 emailContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                 emailContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                 emailContainer.heightAnchor.constraint(equalToConstant: 150),
                 
-                emailButton.heightAnchor.constraint(equalToConstant: 70),
-                
                 logInContainer.topAnchor.constraint(equalTo: emailContainer.bottomAnchor, constant: 50),
                 logInContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                 logInContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-                logInContainer.heightAnchor.constraint(equalToConstant: 150),
-                
-                loginButton.heightAnchor.constraint(equalToConstant: 70),
-                
+                logInContainer.heightAnchor.constraint(equalToConstant: 150)
             ])
         }
     }

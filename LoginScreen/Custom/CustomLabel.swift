@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - CustomLabel
 final class CustomLabel: UILabel {
     
     init(title: String) {
@@ -20,6 +21,7 @@ final class CustomLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
     private func setupSelfLabel(title: String) {
         text = title
         font = .boldSystemFont(ofSize: 18)

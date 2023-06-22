@@ -31,11 +31,8 @@ final class AuthViewController: UIViewController {
     private let emailContainer = UIStackView()
     private let logInContainer = UIStackView()
     
-    
-
     // MARK: - Override methods
     override func viewDidLoad() {
-        super.viewDidLoad()
         setupView()
     }
     
@@ -43,8 +40,13 @@ final class AuthViewController: UIViewController {
     @objc
     private func showLoginViewController() {
         let loginVC = LoginViewController()
-        
         present(loginVC, animated: true)
+    }
+    
+    @objc
+    private func showEmailViewController() {
+        let emailVC = EmailViewController()
+        present(emailVC, animated: true)
     }
 }
 
@@ -52,12 +54,13 @@ final class AuthViewController: UIViewController {
 private extension AuthViewController {
     func setupView() {
         view.backgroundColor = .mainBackground
-        addSubViews()
-        addActions()
+        addSubviews(logoImage, emailContainer, logInContainer)
+        disableAutoresizingMask(logoImage, emailContainer, logInContainer)
         
         setupLogoImage()
         setupEmailContainer()
         setupLogInContainer()
+        addActions()
         
         setupLayout()
     }
@@ -65,16 +68,17 @@ private extension AuthViewController {
 
 // MARK: - Setting
 private extension AuthViewController {
-    func addSubViews() {
-        [logoImage, emailContainer, logInContainer].forEach {
-            view.addSubview($0)
-        }
-    }
     
     func addActions() {
         loginButton.addTarget(
             self,
             action: #selector(showLoginViewController),
+            for: .touchUpInside
+        )
+        
+        emailButton.addTarget(
+            self,
+            action: #selector(showEmailViewController),
             for: .touchUpInside
         )
     }
@@ -99,34 +103,25 @@ private extension AuthViewController {
     }
 }
 
-// MARK: - Layout
+    // MARK: - Layout
 private extension AuthViewController {
     func setupLayout() {
-        [logoImage,
-         loginLabel,
-         loginButton,
-         emailLabel,
-         emailButton,
-         emailContainer,
-         logInContainer].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.66),
+            logoImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33),
             
-            NSLayoutConstraint.activate([
-                logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-                logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                logoImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.66),
-                logoImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33),
-                
-                emailContainer.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 10),
-                emailContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-                emailContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-                emailContainer.heightAnchor.constraint(equalToConstant: 150),
-                
-                logInContainer.topAnchor.constraint(equalTo: emailContainer.bottomAnchor, constant: 50),
-                logInContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-                logInContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-                logInContainer.heightAnchor.constraint(equalToConstant: 150)
-            ])
-        }
+            emailContainer.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 10),
+            emailContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            emailContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            emailContainer.heightAnchor.constraint(equalToConstant: 150),
+            
+            logInContainer.topAnchor.constraint(equalTo: emailContainer.bottomAnchor, constant: 50),
+            logInContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            logInContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            logInContainer.heightAnchor.constraint(equalToConstant: 150)
+        ])
     }
 }

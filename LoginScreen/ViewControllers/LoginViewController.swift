@@ -157,7 +157,7 @@ private extension LoginViewController {
                 loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
                 
-                signUpContainer.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+                signUpContainer.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
                 signUpContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 signUpContainer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)
             ])

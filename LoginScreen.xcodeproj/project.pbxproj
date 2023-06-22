@@ -17,6 +17,8 @@
 		1D44BA112A430BBF00111855 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D44BA102A430BBF00111855 /* UIColor + Extensions.swift */; };
 		1D44BA132A430E0500111855 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D44BA122A430E0500111855 /* LoginViewController.swift */; };
 		1D44BA152A43162E00111855 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D44BA142A43162E00111855 /* RegisterTextField.swift */; };
+		1D55DA932A442E6C000559BE /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55DA922A442E6C000559BE /* EmailViewController.swift */; };
+		1D55DA9F2A444118000559BE /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55DA9E2A444118000559BE /* UIView + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		1D44BA102A430BBF00111855 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		1D44BA122A430E0500111855 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1D44BA142A43162E00111855 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		1D55DA922A442E6C000559BE /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		1D55DA9E2A444118000559BE /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +70,11 @@
 			children = (
 				1D44B9F52A42EDBD00111855 /* AppDelegate.swift */,
 				1D44B9F72A42EDBD00111855 /* SceneDelegate.swift */,
-				1D44BA0E2A430ADE00111855 /* ViewControllers */,
+				1D55DA962A4435DC000559BE /* ViewControllers */,
 				1D44BA0D2A430AC900111855 /* Custom */,
-				1D44BA0F2A430B8D00111855 /* Extensions */,
-				1D44BA002A42EDBE00111855 /* LaunchScreen.storyboard */,
-				1D44BA032A42EDBE00111855 /* Info.plist */,
-				1D44B9FE2A42EDBE00111855 /* Assets.xcassets */,
+				1D55DA9D2A4440FA000559BE /* Helpers */,
+				1D55DA942A44337B000559BE /* Storyboard */,
+				1D55DA952A443405000559BE /* Supports */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -86,21 +89,48 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		1D44BA0E2A430ADE00111855 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				1D44B9F92A42EDBD00111855 /* AuthViewController.swift */,
-				1D44BA122A430E0500111855 /* LoginViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		1D44BA0F2A430B8D00111855 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1D44BA102A430BBF00111855 /* UIColor + Extensions.swift */,
+				1D55DA9E2A444118000559BE /* UIView + Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1D55DA942A44337B000559BE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1D44BA002A42EDBE00111855 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		1D55DA952A443405000559BE /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				1D44BA032A42EDBE00111855 /* Info.plist */,
+				1D44B9FE2A42EDBE00111855 /* Assets.xcassets */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		1D55DA962A4435DC000559BE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D44B9F92A42EDBD00111855 /* AuthViewController.swift */,
+				1D44BA122A430E0500111855 /* LoginViewController.swift */,
+				1D55DA922A442E6C000559BE /* EmailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1D55DA9D2A4440FA000559BE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1D44BA0F2A430B8D00111855 /* Extensions */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,10 +204,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D44BA132A430E0500111855 /* LoginViewController.swift in Sources */,
+				1D55DA932A442E6C000559BE /* EmailViewController.swift in Sources */,
 				1D44B9FA2A42EDBD00111855 /* AuthViewController.swift in Sources */,
 				1D44B9F62A42EDBD00111855 /* AppDelegate.swift in Sources */,
 				1D44B9F82A42EDBD00111855 /* SceneDelegate.swift in Sources */,
 				1D44BA152A43162E00111855 /* RegisterTextField.swift in Sources */,
+				1D55DA9F2A444118000559BE /* UIView + Extensions.swift in Sources */,
 				1D44BA112A430BBF00111855 /* UIColor + Extensions.swift in Sources */,
 				1D44BA0A2A42F8F000111855 /* CustomLabel.swift in Sources */,
 				1D44BA0C2A42FE4B00111855 /* CustomButton.swift in Sources */,
@@ -321,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6YH8FGYJT9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginScreen/Info.plist;
+				INFOPLIST_FILE = LoginScreen/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -352,7 +384,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6YH8FGYJT9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginScreen/Info.plist;
+				INFOPLIST_FILE = LoginScreen/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

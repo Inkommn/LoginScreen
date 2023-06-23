@@ -16,9 +16,10 @@ final class LoginViewController: UIViewController {
     
     private let emailLabel = CustomLabel(title: "Email")
     private let passwordLabel = CustomLabel(title: "Password")
+    private let questionLabel = CustomLabel(title: "Need an account?")
     
-    private let emailTextField = RegisterTextField(placeholder: " Enter your email")
-    private let passwordTextField = RegisterTextField(placeholder: " Enter your password", isPrivate: true)
+    private let emailTextField = RegisterTextField(placeholder: "  Enter your email")
+    private let passwordTextField = RegisterTextField(placeholder: "  Enter your password", isPrivate: true)
     
     private let loginButton = CustomButton(
         title: "Login",
@@ -27,12 +28,14 @@ final class LoginViewController: UIViewController {
         titleColor: .black
     )
     
-    private let questionLabel = CustomLabel(title: "Need an account?")
     private let linkButton = UIButton()
+    private let eyeButton = UIButton()
     
     private let emailContainer = UIStackView()
     private let passwordContainer = UIStackView()
     private let signUpContainer = UIStackView()
+    
+    private var isPrivate = true
     
     // MARK: - Override methods
     override func viewDidLoad() {

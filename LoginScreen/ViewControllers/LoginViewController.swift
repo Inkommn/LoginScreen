@@ -49,7 +49,6 @@ final class LoginViewController: UIViewController {
 private extension LoginViewController {
     func setupView() {
         view.backgroundColor = .white
-        
         addSubViews()
         
         setupBgView()
